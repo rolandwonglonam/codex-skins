@@ -13,8 +13,8 @@ Roland 的 Codex Desktop macOS 皮肤仓库。
 
 安装包放在 [Releases](../../releases/latest)：
 
-- `Codex UQ Skin.zip`：解压后双击 `安装 Codex UQ Skin.command`
-- `Codex UniMelb Skin.zip`：解压后双击 `Codex.app`。图标和名称会显示在 Finder 中
+- `Codex-UQ-Skin.zip`：解压后双击 `安装 Codex UQ Skin.command`
+- `Codex-UniMelb-Skin.zip`：解压后双击 `Codex.app`。图标和名称会显示在 Finder 中
 
 UniMelb 预览：
 
