@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "uq-codex-1",
+  "name": "UQ Codex",
+  "brandSubtitle": "PRIVATE UQ-COLOUR THEME",
+  "tagline": "用于研究、写作与项目管理的 Codex 工作台。",
+  "projectPrefix": "打开项目 · ",
+  "projectLabel": "UQ · 选择项目",
+  "statusText": "UQ THEME ACTIVE",
+  "quote": "RESEARCH · WRITE · BUILD",
+  "image": "uq-st-lucia-campus.jpg",
+  "colors": {
+    "background": "#160B21",
+    "panel": "#21112D",
+    "panelAlt": "#2D183C",
+    "accent": "#962A8B",
+    "accentAlt": "#D6B9DE",
+    "secondary": "#C9AD8A",
+    "highlight": "#51247A",
+    "text": "#FFF9F2",
+    "muted": "#C4B4CF",
+    "line": "rgba(150, 42, 139, .32)"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "unimelb-codex-1",
+  "name": "Melbourne Codex",
+  "brandSubtitle": "PRIVATE UNIMELB COLOUR THEME",
+  "tagline": "用于研究、写作与项目管理的 Codex 工作台。",
+  "projectPrefix": "打开项目 · ",
+  "projectLabel": "UniMelb · 选择项目",
+  "statusText": "MELBOURNE THEME ACTIVE",
+  "quote": "RESEARCH · WRITE · BUILD",
+  "image": "unimelb-old-quad.jpg",
+  "colors": {
+    "background": "#000B2E",
+    "panel": "#00123F",
+    "panelAlt": "#071B4A",
+    "accent": "#407EC9",
+    "accentAlt": "#D7E3F4",
+    "secondary": "#94B7E1",
+    "highlight": "#000F46",
+    "text": "#FFFFFF",
+    "muted": "#B7C3D8",
+    "line": "rgba(64, 126, 201, .32)"
+  }
+}

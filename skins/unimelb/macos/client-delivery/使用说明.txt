@@ -1,0 +1,9 @@
+Codex UniMelb Skin 1.0.0-unimelb1
+
+双击“Codex.app”即可安装并加载皮肤。以后再点它，会直接启动 UniMelb 皮肤。
+
+如果 macOS 第一次拦截，请右键“Codex.app”，选择“打开”。
+
+备用方式：双击“安装 Codex UniMelb Skin.command”。
+
+Codex.app 内含完整运行引擎。不要拆开应用内容。
