@@ -16,6 +16,12 @@ Roland 的 Codex Desktop macOS 皮肤仓库。
 - `Codex-UQ-Skin.zip`：解压后双击 `安装 Codex UQ Skin.command`
 - `Codex-UniMelb-Skin.zip`：解压后双击 `Codex.app`。图标和名称会显示在 Finder 中
 
+用户可以复制下面这句话发送给 macOS Codex，让 Codex 自动完成安装：
+
+```text
+请打开 https://github.com/rolandwonglonam/codex-skins，让我选择 UQ 或 UniMelb，然后从最新 Release 下载对应的 macOS 皮肤，完成解压、安装、自检和 Codex 重启；请直接操作，不要只给教程。
+```
+
 ## 使用范围
 
 - 面向 macOS Codex Desktop
