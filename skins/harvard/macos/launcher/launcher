@@ -1,0 +1,58 @@
+#!/bin/bash
+
+set -u
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd -P)"
+APP_CONTENTS="$(cd "$SCRIPT_DIR/.." && pwd -P)"
+BUNDLED_ENGINE="$APP_CONTENTS/Resources/engine"
+INSTALLED_ENGINE="$HOME/.codex/codex-harvard-skin-studio"
+LOG_DIR="$HOME/Library/Logs/Codex Harvard Skin"
+LOG_PATH="$LOG_DIR/launcher.log"
+
+self_check() {
+  [ -f "$APP_CONTENTS/Info.plist" ] || return 1
+  [ -f "$APP_CONTENTS/Resources/AppIcon.icns" ] || return 1
+  [ -r "$BUNDLED_ENGINE/VERSION" ] || return 1
+  [ -x "$BUNDLED_ENGINE/scripts/install-dream-skin-macos.sh" ] || return 1
+  /usr/bin/printf 'Codex.app is ready. Bundled skin: %s\n' "$(/bin/cat "$BUNDLED_ENGINE/VERSION")"
+}
+
+if [ "${1:-}" = "--self-check" ]; then
+  self_check
+  exit $?
+fi
+
+/bin/mkdir -p "$LOG_DIR"
+{
+  /usr/bin/printf '\n[%s] Codex.app opened.\n' "$(/bin/date '+%Y-%m-%d %H:%M:%S')"
+  self_check
+} >> "$LOG_PATH" 2>&1 || {
+  /usr/bin/osascript -e 'display dialog "安装包不完整。请重新解压 ZIP 后再试。" buttons {"关闭"} default button "关闭" with title "Codex Harvard Skin"' >/dev/null 2>&1 || true
+  exit 1
+}
+
+BUNDLED_VERSION="$(/bin/cat "$BUNDLED_ENGINE/VERSION")"
+INSTALLED_VERSION=""
+if [ -r "$INSTALLED_ENGINE/VERSION" ]; then
+  INSTALLED_VERSION="$(/bin/cat "$INSTALLED_ENGINE/VERSION")"
+fi
+
+if [ "$INSTALLED_VERSION" = "$BUNDLED_VERSION" ] && [ -x "$INSTALLED_ENGINE/scripts/start-dream-skin-macos.sh" ]; then
+  TARGET="$INSTALLED_ENGINE/scripts/start-dream-skin-macos.sh"
+  set -- --port 9341 --prompt-restart
+else
+  TARGET="$BUNDLED_ENGINE/scripts/install-dream-skin-macos.sh"
+  set -- --port 9341 --no-launchers
+fi
+
+if "$TARGET" "$@" >> "$LOG_PATH" 2>&1; then
+  exit 0
+fi
+
+CHOICE="$(/usr/bin/osascript \
+  -e 'display dialog "皮肤没有加载。可以查看日志，或双击包内的备用安装文件。" buttons {"关闭", "查看日志"} default button "查看日志" with title "Codex Harvard Skin"' \
+  -e 'button returned of result' 2>/dev/null || true)"
+if [ "$CHOICE" = "查看日志" ]; then
+  /usr/bin/open -R "$LOG_PATH" >/dev/null 2>&1 || true
+fi
+exit 1

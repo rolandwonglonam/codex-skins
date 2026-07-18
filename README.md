@@ -8,7 +8,7 @@ Roland 的 Codex Desktop macOS 皮肤仓库。
 | --- | --- | --- | --- |
 | UQ | UQ Purple `#51247A` | `1.1.1-uq25` | [`skins/uq/macos`](skins/uq/macos) |
 | UniMelb | Traditional Heritage Blue `#000F46` | `1.0.0-unimelb1` | [`skins/unimelb/macos`](skins/unimelb/macos) |
-| Harvard | Harvard Crimson `#A51C30` | `1.0.1-harvard2` | [下载安装包](../../releases/download/v1.0.0/Codex-Harvard-Skin.zip) |
+| Harvard | Harvard Crimson `#A51C30` | `1.0.1-harvard2` | [源码](skins/harvard/macos) · [下载](../../releases/download/v1.0.0/Codex-Harvard-Skin.zip) |
 
 ## 下载
 
@@ -44,6 +44,10 @@ cd skins/unimelb/macos
 ./tests/run-tests.sh
 ```
 
+```bash
+cd skins/harvard/macos
+./tests/run-tests.sh
+```
 
 ## 品牌资产
 
@@ -53,6 +57,6 @@ cd skins/unimelb/macos
 
 - [`skins/uq/macos/references/asset-provenance.md`](skins/uq/macos/references/asset-provenance.md)
 - [`skins/unimelb/macos/references/asset-provenance.md`](skins/unimelb/macos/references/asset-provenance.md)
-- Harvard 资产来源记录包含在安装包内
+- [`skins/harvard/macos/references/asset-provenance.md`](skins/harvard/macos/references/asset-provenance.md)
 
 公开分发或商业使用前，需要按学校的品牌规则确认许可。

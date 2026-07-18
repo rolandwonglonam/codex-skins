@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "harvard-codex-1",
+  "name": "Harvard Codex",
+  "brandSubtitle": "UNOFFICIAL HARVARD-COLOUR THEME",
+  "tagline": "用于研究、写作与项目管理的 Codex 工作台。",
+  "projectPrefix": "打开项目 · ",
+  "projectLabel": "Harvard Codex · 选择项目",
+  "statusText": "HARVARD THEME ACTIVE",
+  "quote": "VERITAS · RESEARCH · BUILD",
+  "image": "harvard-widener-library.jpg",
+  "colors": {
+    "background": "#1E1E1E",
+    "panel": "#2B2525",
+    "panelAlt": "#3A2A2D",
+    "accent": "#A51C30",
+    "accentAlt": "#F4E7CF",
+    "secondary": "#D2AA4C",
+    "highlight": "#A51C30",
+    "text": "#FFFFFF",
+    "muted": "#D8CDBE",
+    "line": "rgba(210, 170, 76, .34)"
+  }
+}
