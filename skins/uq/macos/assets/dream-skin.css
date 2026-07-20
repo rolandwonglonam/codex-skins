@@ -1575,6 +1575,12 @@ html.codex-dream-skin[data-dream-shell="light"] aside.app-shell-left-panel .code
   text-shadow: none !important;
 }
 
+html.codex-dream-skin aside.app-shell-left-panel button[class*="text-token-input-placeholder-foreground"] {
+  color: #ffffff !important;
+  opacity: .76 !important;
+  text-shadow: none !important;
+}
+
 html.codex-dream-skin body button.codex-uq-dark-surface,
 html.codex-dream-skin body button.codex-uq-dark-surface *,
 html.codex-dream-skin body .composer-surface-chrome button,
@@ -1592,4 +1598,61 @@ html.codex-dream-skin[data-dream-shell] body main.main-surface .composer-surface
 html.codex-dream-skin[data-dream-shell] body main.main-surface .composer-surface-chrome button.codex-uq-dark-surface *,
 html.codex-dream-skin[data-dream-shell] body aside.app-shell-left-panel button.codex-uq-sidebar-expand-label {
   color: #ffffff !important;
+}
+
+/* New home layout: keep dark composer controls white before home detection completes. */
+html.codex-dream-skin body main.main-surface [role="main"] .composer-surface-chrome :is(button, [role="button"]),
+html.codex-dream-skin body main.main-surface [role="main"] .composer-surface-chrome :is(button, [role="button"]) *,
+html.codex-dream-skin[data-dream-shell="light"] body main.main-surface [role="main"] .composer-surface-chrome :is(button, [role="button"]),
+html.codex-dream-skin[data-dream-shell="light"] body main.main-surface [role="main"] .composer-surface-chrome :is(button, [role="button"]) * {
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+
+html.codex-dream-skin body .dream-skin-home .group\/project-selector > button,
+html.codex-dream-skin body .dream-skin-home .group\/project-selector > button *,
+html.codex-dream-skin[data-dream-shell="light"] body .dream-skin-home .group\/project-selector > button,
+html.codex-dream-skin[data-dream-shell="light"] body .dream-skin-home .group\/project-selector > button * {
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+
+/* Home composer footer: workspace and plugin pills share the dark control colour. */
+html.codex-dream-skin body main.main-surface [role="main"] div:has(> .relative > .composer-surface-chrome) :is(button, [role="button"]),
+html.codex-dream-skin body main.main-surface [role="main"] div:has(> .relative > .composer-surface-chrome) :is(button, [role="button"]) *,
+html.codex-dream-skin[data-dream-shell="light"] body main.main-surface [role="main"] div:has(> .relative > .composer-surface-chrome) :is(button, [role="button"]),
+html.codex-dream-skin[data-dream-shell="light"] body main.main-surface [role="main"] div:has(> .relative > .composer-surface-chrome) :is(button, [role="button"]) * {
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+
+/* Codex home utility bar: project, plugin and environment controls use purple pills. */
+html.codex-dream-skin body main.main-surface [role="main"] [class*="_homeUtilityBar_"] :is(button, [role="button"]),
+html.codex-dream-skin body main.main-surface [role="main"] [class*="_homeUtilityBar_"] :is(button, [role="button"]) *,
+html.codex-dream-skin[data-dream-shell="light"] body main.main-surface [role="main"] [class*="_homeUtilityBar_"] :is(button, [role="button"]),
+html.codex-dream-skin[data-dream-shell="light"] body main.main-surface [role="main"] [class*="_homeUtilityBar_"] :is(button, [role="button"]) * {
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+
+/* Current sidebar labels are English. Reserve the action rail before truncating titles. */
+html.codex-dream-skin aside.app-shell-left-panel [class~="group"]:has(button:is([aria-label="置顶任务"], [aria-label="归档任务"], [aria-label="Pin chat"], [aria-label="Archive chat"])) > div[class*="h-full"][class*="w-full"] {
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  padding-right: 64px !important;
+  overflow: hidden !important;
+}
+
+html.codex-dream-skin aside.app-shell-left-panel [class~="group"]:has(button:is([aria-label="置顶任务"], [aria-label="归档任务"], [aria-label="Pin chat"], [aria-label="Archive chat"])) span.text-fade-truncate {
+  box-sizing: border-box !important;
+  max-width: calc(100% - 64px) !important;
+  padding-right: 0 !important;
+}
+
+html.codex-dream-skin aside.app-shell-left-panel button:is([aria-label="置顶任务"], [aria-label="归档任务"], [aria-label="Pin chat"], [aria-label="Archive chat"]),
+html.codex-dream-skin aside.app-shell-left-panel button:is([aria-label="置顶任务"], [aria-label="归档任务"], [aria-label="Pin chat"], [aria-label="Archive chat"]) * {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  position: relative;
+  z-index: 2;
 }

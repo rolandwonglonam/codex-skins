@@ -266,6 +266,7 @@
     if (!sidebar) {
       sidebarBrand?.remove();
     } else {
+      const sidebarExpandLabels = new Set(["展开显示", "Show more", "Show less"]);
       if (!sidebarBrand || sidebarBrand.parentElement !== sidebar) {
         sidebarBrand?.remove();
         sidebarBrand = document.createElement("div");
@@ -276,15 +277,15 @@
       }
       sidebarBrand.querySelector("img").src = logoDarkDataUrl;
       for (const node of sidebar.querySelectorAll(".codex-uq-sidebar-expand-label")) {
-        if ((node.textContent || "").trim() !== "展开显示") {
+        if (!sidebarExpandLabels.has((node.textContent || "").trim())) {
           if (node.classList.contains("codex-uq-sidebar-expand-label")) {
             node.classList.remove("codex-uq-sidebar-expand-label");
           }
         }
       }
       const expandLabel = [...sidebar.querySelectorAll("button, div, span")].find((node) =>
-        (node.textContent || "").trim() === "展开显示" &&
-        ![...node.children].some((child) => (child.textContent || "").trim() === "展开显示"));
+        sidebarExpandLabels.has((node.textContent || "").trim()) &&
+        ![...node.children].some((child) => sidebarExpandLabels.has((child.textContent || "").trim())));
       if (expandLabel && !expandLabel.classList.contains("codex-uq-sidebar-expand-label")) {
         expandLabel.classList.add("codex-uq-sidebar-expand-label");
       }
@@ -297,7 +298,13 @@
       row.style.setProperty("color", "#24152d", "important");
     }
     const homeIndicator = document.querySelector('[data-testid="home-icon"]');
-    const home = homeIndicator?.closest('[role="main"]') ||
+    const semanticHome = [...document.querySelectorAll('[role="main"]')].find((candidate) =>
+      [...candidate.querySelectorAll('h1, h2, [role="heading"]')].some((heading) => {
+        const text = (heading.textContent || "").replace(/\s+/g, " ").trim();
+        return /^what should we work on\??$/i.test(text) ||
+          /^(我们|我).*(该|要).*(处理|做|工作).*(什么|啥)/.test(text);
+      })) || null;
+    const home = homeIndicator?.closest('[role="main"]') || semanticHome ||
       [...document.querySelectorAll('[role="main"]')].find((candidate) =>
         candidate.querySelector('[data-feature="game-source"]') &&
         candidate.querySelector('.group\\\\/home-suggestions')) || null;
@@ -310,6 +317,10 @@
 
     const heroTitle = home?.querySelector('[data-feature="game-source"]') || null;
     setInlineContrast(heroTitle, "#ffffff");
+
+    for (const control of document.querySelectorAll('[class*="_homeUtilityBar_"] button, [class*="_homeUtilityBar_"] [role="button"]')) {
+      setInlineContrast(control, "#ffffff");
+    }
 
     const hero = home?.querySelector(":scope > div:first-child > div:first-child > div:first-child") || null;
     let heroLogo = document.getElementById(HERO_LOGO_ID);
